@@ -1,0 +1,27 @@
+
+    <div>
+        <h1>{{ tituloNuevoObjeto }}</h1>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <input type="text" ngModel name="numeroOrden" placeholder="Ingrese el numero de orden..." />
+            <input type="text" ngModel name="estado" placeholder="Ingrese el estado..." />
+            <input type="text" ngModel name="tipoObjeto" placeholder="Ingrese el codigo del tipo del objeto..." />
+            <input type="text" ngModel name="descripcion" placeholder="Ingrese la descripcion..." />
+            <input type="text" ngModel name="precio" placeholder="Ingrese el precio..." />
+            <button type="submit">Ingresar</button>
+        </form> 
+    </div>
+    
+    <div>
+        <h1>{{ tituloListadoObjeto }} </h1>
+        <ul>
+            <li *ngFor="let unObjeto of objetos" (click)="elegirObjeto(unObjeto)" >
+                <span>{{ unObjeto.estado }}           
+                </span> - {{unObjeto.numeroOrden}}
+                 - {{unObjeto.tipoObjeto}}
+                 - {{unObjeto.descripcion}}
+                 - {{unObjeto.precio}}
+            </li>  
+          </ul>
+    </div>
+   
+    <mi-objeto [objetoDetalle]="objetoElegido"></mi-objeto>
